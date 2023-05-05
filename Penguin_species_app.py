@@ -42,8 +42,18 @@ bl=st.slider('Bill Length (mm)',float(df['bill_length_mm'].min()),float(df['bill
 bd=st.slider('Bill Depth (mm)',float(df['bill_depth_mm'].min()),float(df['bill_depth_mm'].max()))  
 fl=st.slider('Flipper Length (mm)',float(df['flipper_length_mm'].min()),float(df['flipper_length_mm'].max()))  
 bm=st.slider('Body Mass (g)',float(df['body_mass_g'].min()),float(df['body_mass_g'].max()))  
-island=st.selectbox('Island',('Biscoe', 'Dream', 'Torgersen')) 
-sex=st.selectbox('Sex',('Male','Female')) 
+island=st.selectbox('Island',('Biscoe', 'Dream', 'Torgersen'))
+if island=='Biscoe':
+  island=0 
+elif island=='Dream': 
+  island=1 
+else:
+  island=2
+sex=st.selectbox('Gender',('Male','Female')) 
+if sex=='Male':
+  sex=0 
+else:
+  sex=1
 model=st.selectbox('Classifier Model',('Support Vector Machine','Logistic Regression','Random Forest Classifier'))
 if st.button("Predict"):
   if model=='Support Vector Machine':
