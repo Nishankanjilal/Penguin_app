@@ -42,9 +42,9 @@ bl=st.slider('Bill Length (mm)',float(df['bill_length_mm'].min()),float(df['bill
 bd=st.slider('Bill Depth (mm)',float(df['bill_depth_mm'].min()),float(df['bill_depth_mm'].max()))  
 fl=st.slider('Flipper Length (mm)',float(df['flipper_length_mm'].min()),float(df['flipper_length_mm'].max()))  
 bm=st.slider('Body Mass (g)',float(df['body_mass_g'].min()),float(df['body_mass_g'].max()))  
-island=st.select('Island',('Biscoe', 'Dream', 'Torgersen')) 
-sex=st.select('Sex',('Male','Female')) 
-model=st.select('Classifier Model',('Support Vector Machine','Logistic Regression','Random Forest Classifier'))
+island=st.selectbox('Island',('Biscoe', 'Dream', 'Torgersen')) 
+sex=st.selectbox('Sex',('Male','Female')) 
+model=st.selectbox('Classifier Model',('Support Vector Machine','Logistic Regression','Random Forest Classifier'))
 if st.button("Predict"):
   if model=='Support Vector Machine':
     species=predict_species(svc_model, bl, bd, fl, bm, island, sex)
